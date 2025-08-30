@@ -9,7 +9,6 @@ import time
 import csv
 import os
 
-# Path to your ChromeDriver
 CHROMEDRIVER_PATH = r"C:\Users\dakag\Downloads\chromedriver-win64\chromedriver.exe"
 
 
@@ -17,7 +16,6 @@ def scrape_setec_products(category_url, category_name, max_pages=20):
     chrome_options = Options()
     chrome_options.add_argument("--start-maximized")
 
-    # Add these to prevent detection
     chrome_options.add_argument("--disable-blink-features=AutomationControlled")
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
@@ -25,7 +23,6 @@ def scrape_setec_products(category_url, category_name, max_pages=20):
     service = Service(CHROMEDRIVER_PATH)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
-    # Mask the webdriver
     driver.execute_cdp_cmd('Page.addScriptToEvaluateOnNewDocument', {
         'source': '''
             Object.defineProperty(navigator, 'webdriver', {
@@ -44,7 +41,6 @@ def scrape_setec_products(category_url, category_name, max_pages=20):
         try:
             driver.get(url)
 
-            # Wait for products to load
             WebDriverWait(driver, 15).until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "div.relative.bg-white.p-4"))
             )
@@ -67,7 +63,7 @@ def scrape_setec_products(category_url, category_name, max_pages=20):
                 all_products.append({"name": name, "price": price})
 
             page += 1
-            time.sleep(2)  # Polite delay between pages
+            time.sleep(2)
 
         except Exception as e:
             print(f"Error on page {page}: {str(e)}")
@@ -87,7 +83,7 @@ def scrape_setec_products(category_url, category_name, max_pages=20):
 
 
 def scrape_oled_tvs():
-    url = "https://setec.mk/category/oled-30334"  # Fixed URL (removed duplicate https://www)
+    url = "https://setec.mk/category/oled-30334"
     return scrape_setec_products(url, "OLED_TVs", max_pages=5)
 
 

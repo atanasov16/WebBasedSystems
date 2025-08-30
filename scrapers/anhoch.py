@@ -54,11 +54,9 @@ def scrape_anhoch_products(category_url, category_name, max_pages=1):
 
             for product in products:
                 try:
-                    # Extract product name
                     name_elem = product.select_one("a.product-name h6")
                     name = name_elem.get_text(strip=True) if name_elem else "N/A"
 
-                    # Extract price
                     price_elem = product.select_one("div.product-price")
                     price = price_elem.get_text(strip=True) if price_elem else "N/A"
 
@@ -72,7 +70,7 @@ def scrape_anhoch_products(category_url, category_name, max_pages=1):
                     continue
 
             page += 1
-            time.sleep(random.uniform(2, 4))  # Random delay between pages
+            time.sleep(random.uniform(2, 4))
 
         except Exception as e:
             print(f"Error loading page {page}: {str(e)}")
