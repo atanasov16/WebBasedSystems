@@ -7,14 +7,12 @@ The result is not just a dataset but a semantic knowledge graph snippet – read
 
 1. Project Structure
 tech-price-scraper/
-│
-├── data/                   # Raw scraped data (CSV files)
-├── reforged_data/          # Processed semantic data (JSON-LD files)
-├── scrapers/               # Web scraper scripts
-├── utils/                  # Data processing utilities
-└── README.md
+data/                   # Raw scraped data (CSV files)
+reforged_data/          # Processed semantic data (JSON-LD files)
+scrapers/               # Web scraper scripts
+utils/                  # Data processing utilities
 
-2. Features
+3. Features
 
 - Multi-Source Data Acquisition – Scrapes products from Anhoch, Neptun, Setec & Tehnomarket.
 
