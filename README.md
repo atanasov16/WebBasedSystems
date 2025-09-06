@@ -6,10 +6,12 @@ This system automatically scrapes product data (Laptops, TVs, and Smartphones) f
 The result is not just a dataset but a semantic knowledge graph snippet – ready to be consumed by search engines, comparison apps, or graph databases.
 
 1. Project Structure
-tech-price-scraper/
 data/                   # Raw scraped data (CSV files)
+
 reforged_data/          # Processed semantic data (JSON-LD files)
+
 scrapers/               # Web scraper scripts
+
 utils/                  # Data processing utilities
 
 3. Features
