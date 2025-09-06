@@ -6,6 +6,7 @@ This system automatically scrapes product data (Laptops, TVs, and Smartphones) f
 The result is not just a dataset but a semantic knowledge graph snippet – ready to be consumed by search engines, comparison apps, or graph databases.
 
 1. Project Structure
+   
 data/                   # Raw scraped data (CSV files)
 
 reforged_data/          # Processed semantic data (JSON-LD files)
