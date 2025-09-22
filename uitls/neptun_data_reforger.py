@@ -56,7 +56,7 @@ def parse_laptop_name(name):
         "cpu": cpu,
         "ram": ram,
         "storage": storage,
-        "screen_size": screen_size  # Now correctly extracted
+        "screen_size": screen_size
     }
 
 def parse_phone_name(name):
